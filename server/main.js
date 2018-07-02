@@ -4,24 +4,24 @@ Meteor.startup(() => {
   // code to run on server at startup
 
   
-  var adminUser = Meteor.users.findOne({
-    roles: {
-      $in: ["admin"]
-    }
-  });
+  // var adminUser = Meteor.users.findOne({
+  //   roles: {
+  //     $in: ["admin"]
+  //   }
+  // });
 
-  if (!adminUser) {
+  // if (!adminUser) {
 
-    adminUser = Accounts.createUser({
-          username: "tbrowniii",
-          password: "tLbrownIII@0212",
-      profile: {
-          firstname: "Trae",
-          lastname: "Brown",
-      }
-    });
-    Roles.addUsersToRoles(adminUser, [ROLES.Admin]);
-  }
+  //   adminUser = Accounts.createUser({
+  //         username: "tbrowniii",
+  //         password: "tLbrownIII@0212",
+  //     profile: {
+  //         firstname: "Trae",
+  //         lastname: "Brown",
+  //     }
+  //   });
+  //   Roles.addUsersToRoles(adminUser, [ROLES.Admin]);
+  // }
 
 });
 
