@@ -1,0 +1,67 @@
+<template name = "landingPage">  
+
+
+    <div class = "banner">
+        <p class = "bannerTitle">CHS ELL Learning Center</p>
+        <img class = "bannerLogo" src = "eagleLogo.png">
+    </div>
+
+    {{> sAlert}}
+
+    <div class = "pageContent">
+
+
+                <!-- Login Form -->
+          <form id = "login" class = "loginForm">
+                <div class = "usernameInput">
+                    <p class = "pageTitles">Login</p>
+                    <label>Username</label>
+                    <input name="username" class = "loginInput" type = "text" placeholder="Username">
+                </div>
+
+                <div class = "passwordInput">
+                    <label>Password</label>
+                    <input name="password" class = "loginInput" type = "password" placeholder="Password">
+                </div>
+
+                <button type="submit" class="loginButton">Login</button>
+            
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id = "signUp" class = "signupForm">
+                <div class = "emailInput">
+                    <p class = "pageTitles">Sign Up</p>
+                    <label>Email</label>
+                    <input name="email" class = "loginInput" type = "email" placeholder="Email Address">
+                </div>
+                
+                <div class = "firstnameInput">
+                    <label>First Name</label>
+                    <input name="firstname" class = "loginInput" type = "text" placeholder="First Name">
+                </div>
+
+                <div class = "lastnameInput">
+                    <label>Last Name</label>
+                    <input name="lastname" class = "loginInput" type = "text" placeholder="Last Name">
+                </div>
+
+                <div class = "usernameInput">
+                    <label>Username</label>
+                    <input name="username" class = "loginInput" type = "text" placeholder="Username">
+                </div>
+
+                <div class = "passwordInput">
+                    <label>Password</label>
+                    <input name="password" class = "loginInput" type = "password" placeholder="Password">
+                </div>
+
+          
+                <button type="submit" class="registerButton">Create Account</button>
+         
+         </form>
+
+         
+
+    </div>
+</template>  
