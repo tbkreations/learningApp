@@ -43,6 +43,7 @@ function _login(error) {
         console.log(error)
         sAlert.error(error.reason);
     } else {
+        
         FlowRouter.go('/userHome');
     }
 }
