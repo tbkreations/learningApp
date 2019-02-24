@@ -1,7 +1,16 @@
 <head>
-    <title>learningApp</title>
+    <title>CHS ELL Learning Applet</title>
 </head>
 
 <template name="main">
+    <div class="banner">
+        <p class="bannerTitle">CHS ELL Learning Center</p>
+        <img class="bannerLogo" src="eagleLogo.png">
+    </div>
+
     {{> Template.dynamic template=content}}
+    {{> sAlert}}
+
+    <div class="spacer"></div>
+    <footer class="universalFooter"></footer>
 </template>

@@ -1,21 +1,101 @@
-<template name = "userHome">
-    
-    <div class = "banner">
-        <p class = "bannerTitle">CHS ELL Learning Center</p>
-        <img class = "bannerLogo" src = "eagleLogo.png">
+<template name="userHome">
+
+    <div class="nav">
+        <p class="welcomeUser">Welcome, {{#with userInfo}}{{profile.firstname}} {{profile.lastname}}{{/with}}</p>
+
+        <button id="adminhome" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
     </div>
-
-        <p class = "welcomeUser">Welcome, {{#with currentUser}}{{#with profile}}{{firstname}} {{lastname}}{{/with}}{{/with}}</p>
-    <div class = "pageContent">
+    <div class="pageContent">
 
 
+        <!-- Content To Display For Admin -->
+        {{#if userIsAdmin}}
+        <div class="adminPanel">
+            <table id="userTable">
+                <caption>Admin Panel</caption>
+                <tr>
+                    <th class="usertableHead">Username</th>
+                    <th class="usertableHead">Role</th>
+                    <th class="usertableHead">Edit Status</th>
+                </tr>
+                {{#each users}}
+                <tr>
+                    <td class="usertableData">{{username}}</td>
+                    <td class="usertableData">
+                        <div class="styled-select purple rounded">
+                            <select data-id={{_id}} name="userRole">
+                                <option selected="selected" disabled value={{roles}}>{{roles}}</option>
+                                <option value={{oppositeRole}}>{{oppositeRole}}</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td class="usertableData">
+                        <button data-id="{{_id}}" id="removeuserButton" class="universalButton">Remove User</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+            <button id="confirmChanges" class="universalButton">Confirm Changes</button>
+            <div class="bottomNav">
+                <div class="bottomnavItem" id="teachermenuButton">
+                    <i class="fa fa-clipboard"></i>
+                    <p class="bottomnavText">Teacher Menu</p>
+                </div>
 
+                <div class="bottomnavItem" id="studentmenuButton">
+                    <i class="fa fa-edit"></i>
+                    <p class="bottomnavText">Student Menu</p>
+                </div>
+            </div>
+        </div>
+        {{/if}}
 
+        <!-- Admin Teacher Panel -->
+        <div class="adminteacherPanel">
+            <p id="addTerms" class="universalLink">Add New Terms</p>
+            <p class="universalLink">Option 2</p>
+            <p class="universalLink">Option 3</p>
+        </div>
 
+        <!-- Admin Student Panel -->
+        <div class="adminstudentAssignments">
+            <h1 class="contentHeading">Daily Practice Tasks</h1>
+            <div class="taskContainer" id="taskOne">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Listen: "Reading Assessment"</p>
+            </div>
+            <div class="taskContainer" id="taskTwo">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Play: "Sight Word Game"</p>
+            </div>
+            <div class="taskContainer" id="taskThree">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Play: "Parts of Speech Game"</p>
+            </div>
+        </div>
 
+        <!-- Content To Display For Teachers -->
+        {{#if userIsTeacher}}
+        <div class="teacherPanel">
+            <p id="addTerms" class="universalLink">Add New Terms</p>
+            <p class="universalLink">Option 2</p>
+            <p class="universalLink">Option 3</p>
+        </div>
+        {{/if}}
 
-
-
+        <!-- Content To Display For Students -->
+        {{#if userIsStudent}}
+        <div class="studentAssignments">
+            <h1 class="contentHeading">Daily Practice Tasks</h1>
+            <div class="taskContainer" id="taskOne">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Listen: "Reading Assessment"</p>
+            </div>
+            <div class="taskContainer" id="taskTwo">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Play: "Sight Word Game"</p>
+            </div>
+            <div class="taskContainer" id="taskThree">
+                <p class="universalLink" id="studentTask"><i class="fa fa-play-circle"></i>Play: "Parts of Speech Game"</p>
+            </div>
+        </div>
+        {{/if}}
 
     </div>
 

@@ -1,0 +1,47 @@
+<template name="signUp">
+
+    <div class="pageContent">
+        <!-- Sign Up Form -->
+        <form id="signUp" class="signupForm">
+            <p class="pageTitles">Sign Up</p>
+            <div class="signupOne">
+                <div class="emailInput">
+                    <label class="inputLabel">Email</label>
+                    <input name="email" id="email" class="loginInput" type="email" placeholder="Email Address">
+                </div>
+
+                <div class="firstnameInput">
+                    <label class="inputLabel">First Name</label>
+                    <input name="firstname" id="firstname" class="loginInput" type="text" placeholder="First Name">
+                </div>
+
+                <div class="lastnameInput">
+                    <label class="inputLabel">Last Name</label>
+                    <input name="lastname" id="lastname" class="loginInput" type="text" placeholder="Last Name">
+                </div>
+            </div>
+
+            <div class="signupTwo">
+                <div class="usernameInput">
+                    <label class="inputLabel">Username</label>
+                    <input name="username" id="username" class="loginInput" type="text" placeholder="Username">
+                </div>
+
+                <div class="passwordInput">
+                    <label class="inputLabel">Password</label>
+                    <input name="password" id="password" class="loginInput" type="password" placeholder="Password">
+                </div>
+
+                <div class="confirmInput">
+                    <label class="inputLabel">Confirm Password</label>
+                    <input name="confirm" id="confirm" class="loginInput" type="password" placeholder="Confirm Password">
+                </div>
+            </div>
+            <p id="errorMessage"></p>
+
+            <button type="submit" id="registerButton" class="universalButton">Create Account</button>
+            <p id="isUser" class="universalLink">Have an Account? Login</p>
+        </form>
+    </div>
+    
+</template>

@@ -1,0 +1,32 @@
+<template name="addTerms">
+
+    <div class="nav">
+        <button id="home" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
+    </div>
+    <div class="pageContent">
+        <form id="addTerms">
+
+            <div class="termInput">
+                <p class="pageTitles">Add New Terms</p>
+                <label class="inputLabel">Term</label>
+                <input name="term" spellcheck="true" class="universalInput" type="text" placeholder="Term">
+            </div>
+
+            <div class="posInput">
+                <label class="inputLabel">Part Of Speech</label>
+                <input name="pos" spellcheck="true" class="universalInput" type="text" placeholder="Part Of Speech">
+            </div>
+            <div class="buttonContainer">
+                <button type="submit" id="addtermButton" class="universalButton">Add Term</button>
+                <div class="flexbuttonContainer">
+                    <button type="button" id="removeTerms" class="universalButton">Remove Terms</button>
+                    <button type="button" id="manageTerms" class="universalButton">Manage Terms</button>
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+</template>

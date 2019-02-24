@@ -1,0 +1,98 @@
+/* CSS declarations go here */
+
+.signupOne {
+    display: inline-block;
+}
+
+.signupTwo {
+    display: inline-block;
+}
+
+#isUser {
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+}
+
+.bannerLogo {
+    float: right;
+    margin-top: .5%;
+    height: 90%;
+}
+
+#registerButton {
+    padding: 1.5% 4%;
+    display: block;
+    margin: 4% auto;
+}
+
+.signupForm {
+    display: block;
+}
+
+.loginInput {
+    border: 2px solid rgb(156, 121, 182);
+    border-radius: 4px;
+    display: block;
+    outline: none;
+    font-size: 3vmin;
+    margin: 0 auto;
+}
+
+.loginInput:focus {
+    animation: focus .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes focus {
+    100% {
+        box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .75);
+    }
+}
+
+.inputLabel {
+    color: black;
+    font-size: 2vmin;
+}
+
+.usernameInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+.firstnameInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+.lastnameInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+.emailInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+.passwordInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+.confirmInput {
+    margin: 5% auto;
+    width: fit-content;
+}
+
+/* mobile devices */
+@media (max-height: 450px) {
+
+}
+
+/* mobile in landscape */
+@media only screen and (max-height: 450px) and (max-width:815px)  {
+
+}

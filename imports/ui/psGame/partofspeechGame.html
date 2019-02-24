@@ -1,0 +1,36 @@
+<template name="partofspeechGame">
+
+    <div class="nav">
+        <button id="home" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
+    </div>
+
+
+    <div class="pageContent">
+        <div class="gameInstructions">
+            <p class="pageTitles">How To Play</p>
+            <p class="instructionParagraph">
+                One term will appear in the center of the screen, and three parts of speech below. Test your knowledge
+                and choose the correct part of speech to earn points and win!
+            </p>
+
+            <button id="playposGame" class="universalButton">Play Now!</button>
+        </div>
+
+        <div id="psGamePanel" class="gamePanel">
+            <p class="gameCaption universalLink">Choose The Correct Part Of Speech</p>
+            <div id="psQuestionContainer" class="questionCard">
+                <p class="cardText" id="psQuestion"></p>
+            </div>
+            <div id="psAnswerOneContainer" class="answerCard">
+                <p class="cardText" id="psAnswerOne"></p>
+            </div>
+            <div id="psAnswerTwoContainer" class="answerCard">
+                <p class="cardText" id="psAnswerTwo"></p>
+            </div>
+            <div id="psAnswerThreeContainer" class="answerCard">
+                <p class="cardText" id="psAnswerThree"></p>
+            </div>
+        </div>
+    </div>
+</template>

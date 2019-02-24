@@ -1,31 +1,161 @@
-.banner {
-    background-color: black;
-    width: 100%;
-    height: 20vh;
-}
-
-.bannerTitle {
-    margin: 0 0 0 2%;
-    padding-top: 3vh;
-    float: left;
-    color: #733e91;
-    font-size: 10vmin;
-    font-family: 'Times New Roman', Times, serif;
-}
-
 .welcomeUser {
     margin: 2%;
+    font-size: 4vmin;
+    float: left;
 }
 
-.bannerLogo {
+.studentAssignments {
+    width: 50%;
+}
+
+.fa.fa-play-circle {
+    padding-right: 4%;
+}
+
+#studentTask {
+    text-align: center;
+    font-size: 3vmin;
+}
+
+.taskContainer {
+    padding: 1% 0;
+    width: fit-content;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+.contentHeading {
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid #733e91;
+}
+
+.adminPanel {
+    width: 50%;
+}
+
+#userTable {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5%;
+}
+
+caption {
+    font-size: 5vmin;
+    padding: 10px;
+}
+
+.styled-select {
+    height: 29px;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    /* If you add too much padding here, the options won't show in IE */
+    width: fit-content;
+}
+
+.rounded {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.purple {
+    background-color: #733e91;
+}
+
+.purple select {
+    color: black;
+}
+
+.usertableHead {
+    font-size: 3vmin;
+}
+
+.usertableData {
+    font-size: 2.5vmin;
+    padding: 20px;
+    text-align: center;
+}
+
+/* #manageUsers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY;
+    transform: translate(-50%, -50%);
+} */
+
+.bottomnavItem {
+    padding: 1%;
+    margin: 5%;
+    transition: box-shadow .3s;
+}
+
+#teachermenuButton {
+    float: left;
+}
+
+#studentmenuButton {
     float: right;
-    margin-top: .5%;
-    height: 90%;
 }
 
-.pageContent {
-    background-color: white;
-    width: 94%;
-    padding: 1% 2% 2% 2%;
-    height: 30vh;
+.bottomnavItem:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.fa.fa-clipboard {
+    font-size: 7vmin;
+    display: block;
+    text-align: center;
+    color: #733e91;
+}
+
+.fa.fa-edit {
+    font-size: 7vmin;
+    display: block;
+    text-align: center;
+    color: #733e91;
+}
+
+.bottomnavText {
+    font-size: 4vmin;
+    margin: 0;
+}
+
+#confirmChanges {
+    position: relative;
+    left: 35%;
+}
+
+#removeuserButton {
+    white-space: nowrap;
+    padding: 3%;
+}
+
+.adminteacherPanel {
+    display: none;
+}
+
+.adminstudentAssignments {
+    display: none;
+}
+
+#adminhome {
+    display: none;
+    float: left;
 }

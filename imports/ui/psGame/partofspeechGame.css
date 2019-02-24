@@ -1,0 +1,64 @@
+.gameInstructions {
+    width: 50%;
+}
+
+.instructionParagraph {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 5%;
+    border-radius: 3em;
+    padding: 5%;
+    text-align: center;
+    background-color: black;
+    color: #733e91;
+    font-size: 4vmin;
+}
+
+#psQuestion {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10vmin;
+    margin: 0;
+    line-height: 20vmin;
+}
+
+
+#psAnswerOneContainer {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    transition: box-shadow .3s;
+}
+
+#psAnswerOneContainer:hover {
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(33, 33, 33, .6);
+}
+
+#psAnswerTwoContainer {
+    position: absolute;
+    bottom: 10%;
+    transition: box-shadow .3s;
+}
+
+#psAnswerTwoContainer:hover {
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(33, 33, 33, .6);
+}
+
+#psAnswerThreeContainer {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    transition: box-shadow .3s;
+}
+
+#psAnswerThreeContainer:hover {
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(33, 33, 33, .6);
+}
+
+#playposGame {
+    margin: auto;
+    display: block;
+}

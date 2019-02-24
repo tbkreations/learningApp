@@ -3,17 +3,16 @@ import { Template } from 'meteor/templating';
 import "./landingPage.html";
 import "./landingPage.css";
 
+Template.landingPage.onCreated(function() {
+    if(Meteor.userId()) {
+        FlowRouter.go('/userHome');
+    }
+});
+
 // BlazeLayout.setRoot('html');
 Template.landingPage.events({
-    'submit .signupForm'(event) {
-        console.log('sign up')
-        // Prevent default browser form submit
-        event.preventDefault();
-    
-        // Get value from form element
-        const target = event.target;
-    
-        Meteor.call('newUser', target.username.value, target.email.value, target.password.value, _register);
+    'click #notUser': function(event){
+        FlowRouter.go('/signUp');
     },
 
     'submit .loginForm'(event) {
@@ -28,22 +27,11 @@ Template.landingPage.events({
     }
 });
 
-function _register(error){
-    if(error){
-        console.log(error)
-        sAlert.error(error.reason);
-    } else {
-        FlowRouter.go('/userHome');
-    }
-}
-
-
-function _login(error) {
+export function _login(error) {
     if (error) {
         console.log(error)
-        sAlert.error(error.reason);
+        sAlert.error('Error: Incorrect Username or Password');
     } else {
-        
         FlowRouter.go('/userHome');
     }
 }

@@ -1,0 +1,29 @@
+<template name="manageTerms">
+    <div class="nav">
+        <button id="home" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
+    </div>
+
+    <div class="pageContent">
+        <div class="manageTerms">
+            <table id="termsTable">
+                <caption>Manage Terms</caption>
+                <tr>
+                    <th class="termstableHead">Term</th>
+                    <th class="termstableHead">Part Of Speech</th>
+                    <th class="termstableHead">Edit Status</th>
+                </tr>
+                {{#each terms}}
+                <tr>
+                    <td class="termstableData">{{term}}</td>
+                    <td class="termstableData">{{pos}}</td>
+                    <td class="termstableData">
+                        <button data-id="{{_id}}" id="removetermButton" class="universalButton">Remove Term</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+
+    </div>
+</template>

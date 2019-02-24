@@ -21,8 +21,14 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 kadira:flow-router
 kadira:blaze-layout
-useraccounts:materialize
 accounts-ui
 accounts-password
 alanning:roles
 juliancwirko:s-alert
+useraccounts:core
+aldeed:tabular
+juliancwirko:s-alert-scale
+juliancwirko:s-alert-slide
+juliancwirko:s-alert-genie
+fortawesome:fontawesome
+aldeed:simple-schema

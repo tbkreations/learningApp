@@ -1,0 +1,28 @@
+.manageTerms {
+    width: 50%;
+}
+
+.termstableHead {
+    font-size: 3vmin;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.termstableData {
+    font-size: 2.5vmin;
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+}
+
+#removetermButton {
+    white-space: nowrap;
+    padding: 3%;
+}
+
+#termsTable {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5%;
+}
