@@ -1,0 +1,29 @@
+<template name="addVideos">
+    <div class="nav">
+        <button id="home" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
+    </div>
+    <div class="pageContent">
+        <form id="addVideos">
+            <div class="videoInput">
+                <p class="pageTitles">Add New Videos</p>
+                <label class="inputLabel">Source</label>
+                <input name="videoSource" spellcheck="true" class="universalInput" type="text" placeholder="Video Source">
+            </div>
+
+            <div class="videoTitle">
+                <label class="inputLabel">Title</label>
+                <input name="videoTitle" spellcheck="true" class="universalInput" type="text" placeholder="Video Title">
+            </div>
+
+            <div class="buttonContainer">
+                <button type="submit" id="addvideosButton" class="universalButton">Add Video</button>
+                <div class="flexbuttonContainer">
+                    <button type="button" id="removeVideos" class="universalButton">Remove Videos</button>
+                    <button type="button" id="manageVideos" class="universalButton">Manage Videos</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</template>

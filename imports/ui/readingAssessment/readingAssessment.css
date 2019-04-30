@@ -1,0 +1,9 @@
+.frameContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+#videoFrame {
+    width: 50vw;
+    height: 25vw;
+}

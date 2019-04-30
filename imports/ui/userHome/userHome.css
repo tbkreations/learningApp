@@ -12,12 +12,20 @@
     padding-right: 4%;
 }
 
-#studentTask {
+.fa.fa-plus-circle {
+    padding-right: 4%;
+}
+
+.fa.fa-video-camera {
+    padding-right: 4%;
+}
+
+.menuItem {
     text-align: center;
     font-size: 3vmin;
 }
 
-.taskContainer {
+.menuitemContainer {
     padding: 1% 0;
     width: fit-content;
     margin: 0 auto;

@@ -1,0 +1,38 @@
+<template name="manageVideos">
+    <div class="nav">
+        <button id="home" class="universalButton">Home</button>
+        <button id="logout" class="universalButton">Log Out</button>
+    </div>
+
+    <div class="pageContent">
+        <div class="manageVideos">
+            <table id="videosTable">
+                <caption>Manage Videos</caption>
+                <tr>
+                    <th class="videostableHead">Term</th>
+                    <th class="videostableHead">Displayed Video</th>
+                    <th class="videostableHead">Edit Status</th>
+                </tr>
+                {{#each videos}}
+                <tr>
+                    <td class="termstableData">{{videoTitle}}</td>
+                    <td class="termstableData">
+                        {{#if selected}}
+                        <input data-id="{{_id}}" type="radio" name="displayedVideo" value={{displayStatus}} checked>
+                        {{ else }} 
+                        <input data-id="{{_id}}" type="radio" name="displayedVideo" value={{displayStatus}}>
+                        {{/if}}
+                    </td>
+                    <td class="termstableData">
+                        <button data-id="{{_id}}" id="removevideoButton" class="universalButton">Remove Video</button>
+                    </td>
+                </tr>
+                <!-- <form id="videoSelection">
+                    <button class="universalButton" id="submitvideoSelection" type="submit">Change Selected Video</button>
+                </form> -->
+                {{/each}}
+            </table>
+        </div>
+
+    </div>
+</template>

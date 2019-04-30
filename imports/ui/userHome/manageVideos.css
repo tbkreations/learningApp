@@ -1,0 +1,28 @@
+.manageVideos {
+    width: 50%;
+}
+
+.videosstableHead {
+    font-size: 3vmin;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.videostableData {
+    font-size: 2.5vmin;
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+}
+
+#removevideoButton {
+    white-space: nowrap;
+    padding: 3%;
+}
+
+#videosTable {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5%;
+}

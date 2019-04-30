@@ -1,0 +1,25 @@
+#addvideosButton {
+    margin: 10% auto 5% auto;
+    display: block;
+    padding: 2.5%;
+}
+
+#removeVideos {
+    display: block;
+    padding: 2.5%;
+    width: fit-content;
+    white-space: nowrap;
+    margin: auto;
+    margin-bottom: 5%;
+    /* margin-right: 2.5%; */
+}
+
+#manageVideos {
+    width: fit-content;
+    display: block;
+    padding: 2.5%;
+    white-space: nowrap;
+    margin: auto;
+    margin-top: 5%;
+    /* margin-left: 2.5%; */
+}

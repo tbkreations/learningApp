@@ -2,6 +2,7 @@ import {
   Meteor
 } from 'meteor/meteor';
 import { psGameTerms } from '../collections/psTerms';
+import { videos } from '../collections/readingVideos';
 
 Meteor.startup(() => {
   // code to run on server at startup
@@ -44,12 +45,8 @@ Meteor.methods({
         email: email,
       }
     })
-
     Roles.addUsersToRoles(student, 'Student');
-
   },
-
-
 });
 
 Accounts.onCreateUser(function (options, user) {
@@ -127,12 +124,43 @@ Meteor.methods({
     }
   },
 
+  removeVideo(options) {
+    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+      console.log("Remove Video is Being Called");
+      try {
+        videos.remove( options.video );
+        console.log("Success: Video Has Been Removed")
+      } catch( exception ) {
+        console.log(exception);
+      }
+    } else {
+      console.log("Error: Unauthorized User");
+    }
+  },
+
   removeallTerms() {
     if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Remove All Terms is Being Called");
       psGameTerms.remove({});
     }
-  }
+  },
+
+  removeallVideos() {
+    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+      console.log("Remove All Videos is Being Called");
+      videos.remove({});
+    }
+  },
+
+  updateSelection() {
+    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+      console.log("Update Terms is Being Called");
+      videos.update({}, {
+        $set: {
+          selected: false
+        }
+      }, {multi: true});
+    }}
 });
 
 Meteor.publish("roles", function () {

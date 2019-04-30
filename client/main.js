@@ -4,6 +4,8 @@ import './main.css';
 import '../imports/ui/landingPage/landingPage.js';
 import '../imports/ui/userHome/userHome.js';
 import '../imports/ui/userHome/addTerms.js';
+import '../imports/ui/userHome/addVideos.js';
+import '../imports/ui/userHome/manageVideos.js';
 import '../imports/ui/userHome/manageTerms.js';
 import '../imports/ui/signUp/signUp.js';
 import '../imports/ui/psGame/partofspeechGame.js';
