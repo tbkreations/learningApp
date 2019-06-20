@@ -52,7 +52,7 @@ Template.userHome.events({
 
     'click #taskOne': function (event) {
         if (Meteor.userId()) {
-            console.log('click is working');
+
             FlowRouter.go('/readingassessment');
         } else {
             FlowRouter.go('/');
@@ -159,60 +159,65 @@ Template.userHome.helpers({
         var currentUserId = Meteor.userId();
         return Roles.userIsInRole(currentUserId, ['Student']);
     },
+    findOtherRoles: function (userId) {
 
-    // this needs to be fixed still
-    // oppositeRole: function () {
-    //     console.log($(this).attr('data-id'));
-    //     currentRole = currentUser.roles;
-    //     if (currentRole == "Teacher") {
-    //         return "Student"
-    //     } else if (currentRole == "Student") {
-    //         return "Teacher"
-    //     }
-    // }
+        var user = Meteor.users.findOne({
+            _id: userId
+        });
+
+        var currentRoles = user.roles;
+        var allRoles = Meteor.roles.find({}).fetch();
+
+        var otherRoles = [{
+            name: currentRoles[0],
+            selected: true
+        }];
+
+        for (let i = 0; i < allRoles.length; i++) {
+            if (allRoles[i].name != currentRoles[0]) {
+                otherRoles.push({
+                    name: allRoles[i].name,
+                    selected: false
+                });
+            }
+        }
+        return {
+            otherRoles
+        };
+    },
 })
 
 Template.userHome.events({
-    'change [name="userRole"]': function (event) {
+    'click #confirmChanges': function (event, newRole, userId) {
         event.stopPropagation();
-        console.log(event);
-        //Look at later, select value overriding itself
-        let newRole = event.target.value;
-        let userId = event.target.dataset.id;
-        currentUser = Meteor.users.findOne({_id: userId});
-        console.log(newRole);
-        console.log(currentUser.roles);
-        $('select option:selected').attr('disabled', 'disabled').siblings().removeAttr('disabled');
-        if (currentUser.roles == "Teacher") {
-            event.target.value = "Student";
-            event.target.text = "Student";
-            $('select option:not([disabled])').val("Student");
-            $('select option:not([disabled])').text("Student");
-            //$('select option:not([disabled])').val(oppositeRole());
-            //$('select option:not([disabled])').text(oppositeRole());
-        } else if (currentUser.roles == "Student") {
-            event.target.value = "Teacher";
-            event.target.text = "Teacher";
-            $('select option:not([disabled])').val("Teacher");
-            $('select option:not([disabled])').text("Teacher");
-            //$('select option:not([disabled])').val(oppositeRole());
-            //$('select option:not([disabled])').text(oppositeRole());
-        }
-        console.log(userId, newRole);
-        Meteor.call("changeRole", {
-            role: newRole,
-            user: userId
-        })
 
-        'click #confirmChanges', function(event, newRole, userId) {
-            event.stopPropagation();
-            console.log("confirm button is working");
-            Meteor.call("changeRole", {
-                role: newRole,
-                user: userId
-            })
-        }   
-        
+        var allUsers = Meteor.users.find({
+            _id: {
+                $ne: Meteor.userId()
+            }
+        }).fetch();
+
+
+        console.log(allUsers);
+
+        var userListChanges = [];
+        for (let i = 0; i < allUsers.length; i++) {
+            console.log(allUsers[i]._id);
+            selectedRole = document.querySelector("[data-id=" + CSS.escape(allUsers[i]._id) + "]").value;
+            // console.log(selectedRole);
+            if (allUsers[i].roles[0] != selectedRole) {
+                userListChanges.push({
+                    userId: allUsers[i]._id,
+                    role: selectedRole,
+                });
+            }
+        }
+        console.log(userListChanges);
+
+        Meteor.call("changeRole", userListChanges, function () {
+            window.location.reload();
+        });
+
     },
 
     'click #removeuserButton': function (event) {
@@ -221,9 +226,47 @@ Template.userHome.events({
             user: userId
         })
     },
-
-    'click #confirmChanges': function (event, newRole, userId) {
-        event.stopPropagation();
-        window.location.reload();
-    }
 })
+
+
+
+
+// 'change [name="userRole"]': function (event) {
+//     event.stopPropagation();
+//     console.log(event);
+//     //Look at later, select value overriding itself
+//     let newRole = event.target.value;
+//     let userId = event.target.dataset.id;
+//     // let options = event.target.children;
+
+//     // for(let i = 0; i < options.length; i++) {
+//     //     if(options[i].value == newRole) {
+
+//     //     }
+//     // }
+
+//     // currentUser = Meteor.users.findOne({_id: userId});
+//     // console.log(newRole);
+//     // console.log(currentUser.roles);
+//     // $('select option:selected').attr('disabled', 'disabled').siblings().removeAttr('disabled');
+//     // if (currentUser.roles == "Teacher") {
+//     //     event.target.value = "Student";
+//     //     event.target.text = "Student";
+//     //     $('select option:not([disabled])').val("Student");
+//     //     $('select option:not([disabled])').text("Student");
+//     //     //$('select option:not([disabled])').val(oppositeRole());
+//     //     //$('select option:not([disabled])').text(oppositeRole());
+//     // } else if (currentUser.roles == "Student") {
+//     //     event.target.value = "Teacher";
+//     //     event.target.text = "Teacher";
+//     //     $('select option:not([disabled])').val("Teacher");
+//     //     $('select option:not([disabled])').text("Teacher");
+//     //     //$('select option:not([disabled])').val(oppositeRole());
+//     //     //$('select option:not([disabled])').text(oppositeRole());
+//     // }
+//     console.log(userId, newRole);
+//     Meteor.call("changeRole", {
+//         role: newRole,
+//         user: userId
+//     })
+// },

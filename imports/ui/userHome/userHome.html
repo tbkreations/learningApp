@@ -19,14 +19,22 @@
                     <th class="usertableHead">Role</th>
                     <th class="usertableHead">Edit Status</th>
                 </tr>
-                {{#each users}}
+                {{#each user in users}}
                 <tr>
-                    <td class="usertableData">{{username}}</td>
+                    <td class="usertableData">{{user.username}}</td>
                     <td class="usertableData">
                         <div class="styled-select purple rounded">
-                            <select data-id={{_id}} name="userRole">
-                                <option selected="selected" disabled value={{roles}}>{{roles}}</option>
-                                <option data-id={{_id}} value=""></option>
+                            <select data-id={{user._id}} name="userRole">
+                                <!-- <option selected="selected" disabled value={{user.roles}}>{{user.roles}}</option> -->
+                                {{#with findOtherRoles user._id}}
+                                    {{#each role in otherRoles}}
+                                        {{#if role.selected}}
+                                            <option selected="selected" value="{{role.name}}">{{role.name}}</option>
+                                        {{else}}
+                                            <option value="{{role.name}}">{{role.name}}</option>
+                                        {{/if}}
+                                    {{/each}}
+                                {{/with}}
                             </select>
                         </div>
                     </td>

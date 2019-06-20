@@ -1,8 +1,12 @@
 import {
   Meteor
 } from 'meteor/meteor';
-import { psGameTerms } from '../collections/psTerms';
-import { videos } from '../collections/readingVideos';
+import {
+  psGameTerms
+} from '../collections/psTerms';
+import {
+  videos
+} from '../collections/readingVideos';
 
 Meteor.startup(() => {
   // code to run on server at startup
@@ -80,29 +84,32 @@ Meteor.publish("userList", function () {
 });
 
 Meteor.methods({
-  changeRole( options ) {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"])) {
+  changeRole(userListChanges) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"])) {
       console.log("Change User is Being Called");
-      try {
-        Roles.setUserRoles( options.user, options.role );
-        console.log(options.role);
-        console.log(options.user);
-      } catch( exception ) {
-        console.log(exception);
+
+      for (let i = 0; i < userListChanges.length; i++) {
+        try {
+          Roles.setUserRoles(userListChanges[i].userId, userListChanges[i].role);
+          console.log(userListChanges[i].role);
+          console.log(userListChanges[i].userId);
+        } catch (exception) {
+          console.log(exception);
+        }
       }
     } else {
       console.log("Error: Unauthorized User");
     }
-    
+
   },
 
   removeUser(options) {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"])) {
       console.log("Remove User is Being Called");
       try {
-        Meteor.users.remove( options.user );
+        Meteor.users.remove(options.user);
         console.log("Success: User Has Been Removed")
-      } catch( exception ) {
+      } catch (exception) {
         console.log(exception);
       }
     } else {
@@ -111,12 +118,12 @@ Meteor.methods({
   },
 
   removeTerm(options) {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Remove Term is Being Called");
       try {
-        psGameTerms.remove( options.term );
+        psGameTerms.remove(options.term);
         console.log("Success: Term Has Been Removed")
-      } catch( exception ) {
+      } catch (exception) {
         console.log(exception);
       }
     } else {
@@ -125,12 +132,12 @@ Meteor.methods({
   },
 
   removeVideo(options) {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Remove Video is Being Called");
       try {
-        videos.remove( options.video );
+        videos.remove(options.video);
         console.log("Success: Video Has Been Removed")
-      } catch( exception ) {
+      } catch (exception) {
         console.log(exception);
       }
     } else {
@@ -139,28 +146,31 @@ Meteor.methods({
   },
 
   removeallTerms() {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Remove All Terms is Being Called");
       psGameTerms.remove({});
     }
   },
 
   removeallVideos() {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Remove All Videos is Being Called");
       videos.remove({});
     }
   },
 
   updateSelection() {
-    if(Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
+    if (Roles.userIsInRole(Meteor.userId(), ["Admin"]) || Roles.userIsInRole(Meteor.userId(), ["Teacher"])) {
       console.log("Update Terms is Being Called");
       videos.update({}, {
         $set: {
           selected: false
         }
-      }, {multi: true});
-    }}
+      }, {
+        multi: true
+      });
+    }
+  }
 });
 
 Meteor.publish("roles", function () {
